@@ -1,6 +1,6 @@
 # e2_configure_favoritos
 
-Script para gerar canais ordenados para o pixel com e2
+Script para gerar canais ordenados para o pixel com e2, criando um bouquet chamado netcabo
 
 
 ## Instalação
