@@ -252,12 +252,6 @@ def obter_lista_externa(conf, list_send):
     params = {'src': 'kodi', 'node': uuid_one, 'listChannel': picons_list}
     params = json.dumps(params).encode('utf8')
 
-    # req = Request(conf['urlPicons'], data=params, headers={
-    #               'content-type': 'application/json'})
-    # fil = urlopen(req)
-    # list_url = json.load(fil)
-    # fil.close()
-
     req = urllib2.Request(conf['urlPicons'], data=params, headers={
                   'content-type': 'application/json'})
     response = urllib2.urlopen(req)
@@ -378,10 +372,6 @@ def gerar_custom_bouquet(conf, lamedb, lista):
                 'name': i[2],
             })
 
-    # conf['desativar_canais_sd']       = args.desativar_canais_sd
-    # conf['desativar_canais_adultos']  = args.desativar_canais_adultos
-    # conf['desativar_canais_internos'] = args.desativar_canais_internos
-
     if conf['desativar_canais_sd']:
         final_list = desativar_canais_duplicados(final_list)
 
@@ -390,13 +380,6 @@ def gerar_custom_bouquet(conf, lamedb, lista):
 
     if conf['desativar_canais_internos']:
         final_list = desativar_canais_internos(conf, final_list)
-
-    # sys.exit()
-
-    # for i in final_list:
-    #     print i
-
-    # sys.exit()
 
     return final_list
 
@@ -517,28 +500,6 @@ def main():
 
 
     save_custom_bouquet(conf, lista_custom)
-
-
-
-
-
-    # has_tvh = check_for_tvh(CONFIG)
-
-    # if args.desativar_canais_sd and has_tvh:
-    #     desativar_canais_duplicados(CONFIG)
-
-    # if args.desativar_canais_adultos and has_tvh:
-    #     desativar_canais_adultos(CONFIG)
-
-    # if args.desativar_canais_internos and has_tvh:
-    #     desativar_canais_internos(CONFIG)
-
-    # if args.ativar_todos_canais and has_tvh:
-    #     ativar_todos_canais(CONFIG)
-
-    # if args.reorganizar_numeracao_canais and has_tvh:
-    #     reorganizar_numeracao_canais(CONFIG)
-
 
 if __name__ == '__main__':
     main()
